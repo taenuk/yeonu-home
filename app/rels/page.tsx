@@ -1,0 +1,3 @@
+'use client'
+import SiteChrome from '@/components/SiteChrome';import {useSiteData,charsForPair} from '@/components/useSiteData'
+export default function Rels(){const d=useSiteData();return <SiteChrome settings={d.settings} moving={d.moving} isAdmin={d.isAdmin}><section className="section pageintro"><div className="eyebrow">RELATIONSHIPS</div><h1>pairs</h1><p>페어를 누르면 상세 페이지와 로그 아카이브로 이동해요.</p></section><div className="pairgrid">{d.pairs.map(p=><a className="paircard" key={p.id} href={`/rels/${p.id}`}>{p.image_url?<img src={p.image_url} alt={p.name}/>:<div className="pairplaceholder">PAIR</div>}<div className="pairoverlay"><b>{p.name}</b><small>{charsForPair(p,d.characters)}</small></div></a>)}</div></SiteChrome>}

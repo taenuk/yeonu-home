@@ -1,0 +1,3 @@
+'use client'
+import SiteChrome from '@/components/SiteChrome';import {useSiteData} from '@/components/useSiteData'
+export default function Friends(){const d=useSiteData();return <SiteChrome settings={d.settings} moving={d.moving} isAdmin={d.isAdmin}><section className="section pageintro"><div className="eyebrow">FRIENDS</div><h1>friend banners</h1><p>친구들의 배너를 모아두는 곳 ♡</p></section><div className="friendgrid">{d.friends.map(b=><a key={b.id} href={b.link_url||undefined} target={b.link_url?'_blank':undefined} rel="noreferrer">{b.image_url&&<img src={b.image_url} alt={b.alt||''}/>}</a>)}</div></SiteChrome>}

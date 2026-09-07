@@ -1,0 +1,3 @@
+'use client'
+import SiteChrome from '@/components/SiteChrome';import {useSiteData,charsForPair} from '@/components/useSiteData'
+export default function Playlog(){const d=useSiteData();return <SiteChrome settings={d.settings} moving={d.moving} isAdmin={d.isAdmin}><section className="section pageintro"><div className="eyebrow">LOG ARCHIVE</div><h1>playlog</h1><p>저장된 페어 로그를 한곳에서 모아볼 수 있어요.</p></section><div className="logs">{d.logs.map(l=>{const p=d.pairs.find(x=>x.id===l.pair_id);return <details className="logitem biglog" key={l.id}><summary><span><b>{l.title||'UNTITLED LOG'}</b><small>{p?` · ${p.name} · ${charsForPair(p,d.characters)}`:''}</small></span><small>{l.log_date||''}</small></summary><div className="logbody">{l.body}</div></details>})}</div></SiteChrome>}
